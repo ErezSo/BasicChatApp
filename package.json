@@ -1,0 +1,11 @@
+{
+  "name": "BasicChatApp",
+  "version": "0.0.0",
+  "description": "Basic chat application in real time",
+  "dependencies": {
+    "socket.io": "latest",
+    "express": "latest",
+    "jade": "latest"
+  },
+  "author": "developer"
+}
