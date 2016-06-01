@@ -4,8 +4,7 @@
   "description": "Basic chat application in real time",
   "dependencies": {
     "socket.io": "latest",
-    "express": "latest",
-    "jade": "latest"
+    "express": "latest"
   },
   "author": "developer"
 }

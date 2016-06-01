@@ -1,18 +1,21 @@
-var express = require('express');
-var app = express();
-var port = 3700;
+var app = require('express')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
-app.get('/', function(reg, res) {
-  res.send('Server initialized');
+
+app.get('/', function(req, res) {
+  res.sendFile(__dirname + '/page.html');
 });
 
-app.use(express.static(__dirname + '/public'));
-app.listen(port);
-console.log('listening on port ', port);
 
-app.set('views', __dirname + '/template');
-app.set('view engine', 'jade');
-app.engine('jade', require('jade').__express);
-app.get('/', function(req, res) {
-  res.render('page');
+http.listen(3000, function() {
+  console.log('listening on *3000');
+})
+
+
+io.on('connection', function(socket) {
+  console.log('a user connected');
+  socket.on('disconnect', function() {
+    console.log('user disconnected');
+  })
 });
